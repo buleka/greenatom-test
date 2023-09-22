@@ -6,7 +6,15 @@ function displayTasks() {
     for (let i = 0; i < tasks.length; i++) {
         const task = tasks[i];
         const taskElement = document.createElement("li");
+        const deleteButton = document.createElement("button");
         taskElement.textContent = task.title;
+        taskElement.classList.add('list-group-item');
+        deleteButton.textContent = 'Удалить элемент';
+        deleteButton.classList.add('btn');
+        deleteButton.classList.add('btn-danger');
+
+        taskElement.appendChild(deleteButton);
+
         if (task.completed) {
             taskElement.classList.add("completed");
         }
@@ -58,7 +66,7 @@ function completeTask() {
     const taskList = document.getElementById("task-list");
     const selectedTask = taskList.querySelector(".selected");
     if (!selectedTask) {
-        alert("Please select a task to complete!");
+        alert("Выберите элемент из списка");
         return;
     }
     const index = Array.from(taskList.children).indexOf(selectedTask);
@@ -67,13 +75,13 @@ function completeTask() {
     displayTasks();
 }
 
+
+
 function deleteTask() {
+    debugger
     const taskList = document.getElementById("task-list");
-    const selectedTask = taskList.querySelector(".selected");
-    if (!selectedTask) {
-        alert("Please select a task to delete!");
-        return;
-    }
+    const selectedTask = this.parentNode;
+
     const index = Array.from(taskList.children).indexOf(selectedTask);
     tasks.splice(index, 1);
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -88,8 +96,7 @@ const buttonDeleteLast = document.getElementById('deleteLast');
 const buttonHighlightEven = document.getElementById('highlightEven');
 const buttonHighlightOdd = document.getElementById('highlightOdd');
 const buttonCompleteTask = document.getElementById('completeTask');
-const buttonDeleteTask = document.getElementById('deleteTask');
-
+const buttonDeleteTask = document.querySelectorAll('.btn-danger');
 
 
 buttonAdd.addEventListener('click', addTask);
@@ -98,4 +105,7 @@ buttonDeleteLast.addEventListener('click', deleteLast);
 buttonHighlightEven.addEventListener('click', highlightEven);
 buttonHighlightOdd.addEventListener('click', highlightOdd);
 buttonCompleteTask.addEventListener('click', completeTask);
-buttonDeleteTask.addEventListener('click', deleteTask);
+
+buttonDeleteTask.forEach((button) => {
+    button.addEventListener("click", deleteTask.bind(null, button));
+});
