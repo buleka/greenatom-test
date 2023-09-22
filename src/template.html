@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Todo List</h1>
+    <input class="form-control" type="text" placeholder="Add a task" id="task">
+    <button class="btn btn-primary" onclick="addTask()">Add</button>
+    <ul id="task-list"></ul>
+    <button class="btn btn-primary" onclick="highlightEven()">Highlight Even</button>
+    <button class="btn btn-primary" onclick="highlightOdd()">Highlight Odd</button>
+    <button class="btn btn-primary" onclick="deleteLast()">Delete Last</button>
+    <button class="btn btn-primary" onclick="deleteFirst()">Delete First</button>
+    <button class="btn btn-primary" onclick="completeTask()">Complete</button>
+    <button class="btn btn-primary" onclick="deleteTask()">Delete</button>
+</div>
+<script src="index.js"></script>
+
+</body>
+</html>
