@@ -54,20 +54,6 @@ module.exports = {
             filename: "index.html",
         }),
 
-        new HtmlWebpackInjectPreload({
-            files: [
-                {
-                    match: /.*\.woff2$/,
-                    attributes: {as: "font", type: "font/woff2", crossorigin: true},
-                },
-                {
-                    match: /vendors\.[a-z-0-9]*.css$/,
-                    attributes: {as: "style"},
-                },
-            ]
-        }),
-
-
         new FileManagerPlugin({
             events: {
                 onStart: {
@@ -77,7 +63,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(
             {
-                filename: "[name].[contenthash].css",
+                filename: "[name].css",
             }
         ),
         new CompressionPlugin({
@@ -117,20 +103,10 @@ module.exports = {
             {
                 test: /\.(sa|sc|c)ss$/i,
                 use: [
-                    // devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                     MiniCssExtractPlugin.loader,
                     {
                         loader: "css-loader",
-                        options: {
-                            // importLoaders: 2,
-                            // modules: {
-                            //   getLocalIdent: generateMinimalClassname
-                            // }
-                        },
                     },
-                    // "postcss-loader",
-                    "sass-loader",
-
                 ],
             },
             {

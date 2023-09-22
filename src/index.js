@@ -81,3 +81,21 @@ function deleteTask() {
 }
 
 displayTasks();
+
+const buttonAdd = document.getElementById('add');
+const buttonDeleteFirst = document.getElementById('deleteFirst');
+const buttonDeleteLast = document.getElementById('deleteLast');
+const buttonHighlightEven = document.getElementById('highlightEven');
+const buttonHighlightOdd = document.getElementById('highlightOdd');
+const buttonCompleteTask = document.getElementById('completeTask');
+const buttonDeleteTask = document.getElementById('deleteTask');
+
+
+
+buttonAdd.addEventListener('click', addTask);
+buttonDeleteFirst.addEventListener('click', deleteFirst);
+buttonDeleteLast.addEventListener('click', deleteLast);
+buttonHighlightEven.addEventListener('click', highlightEven);
+buttonHighlightOdd.addEventListener('click', highlightOdd);
+buttonCompleteTask.addEventListener('click', completeTask);
+buttonDeleteTask.addEventListener('click', deleteTask);
